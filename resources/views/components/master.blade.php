@@ -7,7 +7,8 @@
     <title>{{ $title }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
-<div class="flex min-h-screen">
+  <body>
+<div class="flex min-h-screen w-full bg-[#ECEFF4]">
     <x-nav/>
     <main class="flex-auto ml-6 mt-2" style="color:black">
       {{ $slot }}

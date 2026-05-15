@@ -1,14 +1,23 @@
 <x-master>
-<fieldset class="mx-auto mt-20 fieldset bg-[#F8F9FB] border-base-300 rounded-box w-xs border p-4">
-  <legend class="fieldset-legend">Page details</legend>
+<div class="flex justify-center mt-5 card bg-[#E5E9F0] text-black w-380 h-40 border-1 border-gray-300 rounded-2xl">
+  <div class="card-body items-center text-center">
+    </div>
+<div class="ml-10 mb-10 flex items-center gap-6">
+  <div class="flex items-center gap-4">
+    <img src="profile.jpg" class="w-20 h-20 rounded-full" />
+    <div class="p-6">
+      <p class="font-bold">lmao-btth</p>
+      <p class="text-sm text-center text-gray-400">lmao</p>
+    </div>
+  </div>
 
-  <label class="label">Name</label>
-  <input type="text" class="input" placeholder="John Doe" />
+  <div class="w-1 h-30 bg-black rounded-2xl"></div>
 
-  <label class="label">Email</label>
-  <input type="email" class="input" placeholder="email@example" />
-
-  <label class="label">Password</label>
-  <input type="text" class="input" placeholder="password" />
-</fieldset>
+  <div class="ml-10 flex gap-4">
+    <div class="card bg-white p-4">...</div>
+    <div class="card bg-white p-4">...</div>
+  </div>
+</div>
+  </div>
+</div>
 </x-master>
