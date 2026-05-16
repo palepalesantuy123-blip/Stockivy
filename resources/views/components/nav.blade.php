@@ -28,7 +28,7 @@
       @guest
         <div class="p-6 px-2 gap-4">
     <a href="/notification" class="text-2xl font-bold tracking-wider">
-      <img src="/bell.png" alt="Logo" class="w-5 h-5 inline-block mr-2">
+      <img src="/bell.png" alt="Logo" class="w-5 h-5 inline-block mr-2 mb-5">
       </a>
     <a href="/login" class="text-2xl font-bold tracking-wider">
       <img src="/people.png" alt="Logo" class="w-5 h-5 inline-block mr-2">
