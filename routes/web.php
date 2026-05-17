@@ -5,7 +5,18 @@ use App\Http\Controllers\StockivyController;
 use App\Http\Controllers\RegisteredController;
 
 Route::get('/', function () {
-    return view('item.index');
+    $labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    $dataBawah = [120, 100, 140, 105, 112, 120, 100];
+    $dataAtas = [44, 78, 68, 49, 55, 44, 81];
+    return view('item.index', [
+        'person' => 'Stefanie Sun',
+        //        'person' => Auth::user()->name ?? 'Guest',
+        'desciption' => 'afterwards',
+        'user_profile' => 'bukankahini.jpg',
+        'labels' => $labels,
+        'dataBawah' => $dataBawah,
+        'dataAtas' => $dataAtas,
+    ]);
 });
 
 //Login, etc.

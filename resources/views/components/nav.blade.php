@@ -1,8 +1,8 @@
 <div class="flex min-h-screen">
   <aside class="w-20 bg-[#F8F9FB] border-r border-base-300 flex flex-col">
-    <div class="p-6">
+    <div class="mt-8 ml-2 mb-5 mx-auto">
       <a href="/" class="text-2xl font-bold tracking-wider">
-      <img src="/logo.png" alt="Logo" class="w-10 h-10 aspect-square object-contain inline-block mr-2">
+      <img src="/logo.png" alt="Logo" class="w-15 h-15 aspect-square object-contain inline-block mr-2">
       </a>
     </div>
 

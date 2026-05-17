@@ -7,8 +7,11 @@
     <title>{{ $title }}</title>
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
   </head>
   <body>
+  <main>
+@livewireStyles
 <div class="flex min-h-screen w-full bg-[#ECEFF4]">
     <x-nav/>
     <main class="flex-auto ml-6 mt-2" style="color:black">
