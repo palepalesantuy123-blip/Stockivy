@@ -1,54 +1,40 @@
-<div class="flex min-h-screen">
-  <aside class="w-20 bg-[#F8F9FB] border-r border-base-300 flex flex-col">
-    <div class="mt-8 ml-2 mb-5 mx-auto">
-      <a href="/" class="text-2xl font-bold tracking-wider">
-      <img src="/logo.png" alt="Logo" class="w-15 h-15 aspect-square object-contain inline-block mr-2">
+<aside class="w-20 bg-[#F8F9FB] border-r border-base-300 flex flex-col h-full justify-between">
+
+  <div class="flex flex-col items-center w-full">
+    <div class="mt-8 mb-5 mx-auto">
+      <a href="/">
+        <img src="/logo.png" alt="Logo" class="w-12 h-12 aspect-square object-contain">
       </a>
     </div>
 
-    <ul class="menu menu-md px-4 flex-1 gap-4">
-      <li><a href="/" class="text-2xl font-bold tracking-wider">
-      <img src="/home.png" alt="Logo" class="w-6 h-6 inline-block mr-0">
-      </a></li>
-      <li><a href="/category" class="text-2xl font-bold tracking-wider">
-      <img src="/category.png" alt="Logo" class="w-6 h-6 inline-block mr-0">
-      </a></li>
-      <li><a href="/add" class="text-2xl font-bold tracking-wider">
-      <img src="/box.png" alt="Logo" class="w-6 h-6 inline-block mr-0">
-      </a></li>
+    <ul class="menu menu-md px-2 w-full flex flex-col gap-4 items-center">
+      <li><a href="/"><img src="/home.png" alt="Home" class="w-6 h-6"></a></li>
+      <li><a href="/category"><img src="/category.png" alt="Category" class="w-6 h-6"></a></li>
+      <li><a href="/add"><img src="/box.png" alt="Box" class="w-6 h-6"></a></li>
 
       @can('view-admin')
-      <li class="mt-4 shadow-sm bg-base-300 rounded-lg">
-        <a href="/admin" class="text-error font-semibold">Admin Panel</a>
+      <li class="mt-4 shadow-sm bg-base-300 rounded-lg p-1 text-center">
+        <a href="/admin" class="text-error font-semibold text-xs">Admin</a>
       </li>
       @endcan
     </ul>
+  </div>
 
-    <div class="p-4 ml-2">
-      @guest
-        <div class="p-6 px-2 gap-4">
-    <a href="/notification" class="text-2xl font-bold tracking-wider">
-      <img src="/bell.png" alt="Logo" class="w-5 h-5 inline-block mr-2 mb-5">
-      </a>
-    <a href="/login" class="text-2xl font-bold tracking-wider">
-      <img src="/people.png" alt="Logo" class="w-5 h-5 inline-block mr-2">
-      </a>
-        </div>
-      @endguest
+  <div class="mb-12 w-full flex flex-col items-center gap-6">
+    @guest
+      <a href="/notification"><img src="/bell.png" alt="Notification" class="w-5 h-5"></a>
+      <a href="/login"><img src="/people.png" alt="Login" class="w-5 h-5"></a>
+    @endguest
 
-      @auth
-        <div class="flex items-center justify-between">
-          <span class="text-sm font-medium truncate">User Mode</span>
-          <form method="POST" action="/logout">
-            @csrf
-            <button class="btn btn-sm btn-ghost text-error">Log Out</button>
-          </form>
-        </div>
-      @endauth
-    </div>
-  </aside>
+    @auth
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-[10px] font-medium text-gray-400">User</span>
+        <form method="POST" action="/logout">
+          @csrf
+          <button class="btn btn-xs btn-ghost text-error">Out</button>
+        </form>
+      </div>
+    @endauth
+  </div>
 
-  <main class="flex-1 p-10">
-  {{ $slot }}
-  </main>
-</div>
+</aside>

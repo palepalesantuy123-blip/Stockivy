@@ -5,18 +5,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ $title }}</title>
-    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
   </head>
-  <body>
-  <main>
-@livewireStyles
-<div class="flex min-h-screen w-full bg-[#ECEFF4]">
-    <x-nav/>
-    <main class="flex-auto ml-6 mt-2" style="color:black">
-      {{ $slot }}
-    </main>
-</div>
+  <body class="bg-[#ECEFF4] antialiased overflow-hidden">
+
+    <div class="flex h-screen w-full overflow-hidden">
+
+        <x-nav/>
+
+        <main class="flex-1 h-full overflow-y-auto p-10">
+          {{ $slot }}
+        </main>
+
+    </div>
+
+    @livewireScripts
   </body>
 </html>

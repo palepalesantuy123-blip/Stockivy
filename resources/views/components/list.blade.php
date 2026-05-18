@@ -22,8 +22,10 @@
             scrollbar-track-transparent">
 
   <div class="[direction:ltr] space-y-2 mr-8">
-    <div class="p-2 bg-gray-200 rounded-lg"><img src="blue.jpg"></div>
-    <div class="p-2 bg-gray-200 rounded-lg"><img src="binigwtuh.jpg"></div>
-    <div class="p-2 bg-gray-200 rounded-lg"><img src="third.jpg"></div>
+    <div class="p-2 bg-[#E5E9F0] rounded-lg"><img src="blue.jpg"></div>
+    <div class="p-2 bg-[#E5E9F0] rounded-lg"><img src="binigwtuh.jpg"></div>
+    <div class="p-2 bg-[#E5E9F0] rounded-lg"><img src="third.jpg"></div>
+    <div class="p-2 bg-[#E5E9F0] rounded-lg"><img src="hui_se.jpg"></div>
   </div>
 </div>
+
