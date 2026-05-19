@@ -19,6 +19,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/category', function () {
+    return view('item.category');
+});
+
 //Login, etc.
 Route::middleware('guest')->group(function () {
     Route::get('/login', [RegisteredController::class, 'create'])->name('login');

@@ -7,7 +7,7 @@
     <span>Insight</span>
   </div>
 </div>
-<div class="bg-[#E5E9F0] w-105 h-8 rounded-lg mt-4 mx-auto border border-gray-300 flex items-center px-3 gap-2Focus-within:ring-2 focus-within:ring-blue-400">
+<div class="bg-[#E5E9F0] w-101 h-8 rounded-lg mt-4 mx-auto border border-gray-300 flex items-center px-3 gap-2Focus-within:ring-2 focus-within:ring-blue-400">
   <img src="/search.png" alt="search_button" class="w-4 h-4 object-contain opacity-50">
   <input
     type="text"

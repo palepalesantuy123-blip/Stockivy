@@ -11,7 +11,7 @@
         </div>
       </div>
 
-      <div class="w-0.5 h-24 bg-black/20 rounded-2xl mx-6"></div>
+      <div class="w-1 h-28 bg-black rounded-2xl mx-6"></div>
 
       <div class="flex-1 flex gap-4">
         <div class="card bg-[#F8F9FB] p-2 flex flex-row items-center gap-4 flex-1 h-24 rounded-2xl border border-gray-300 pl-6">
@@ -43,7 +43,7 @@
         @include('components.chartbar')
     </div>
 
-    <div class="w-120 mt-6 ml-5 bg-white p-6 rounded-2xl border-2 border-gray-300 shadow-sm shrink-0">
+    <div class="w-120 mt-6 ml-5 bg-white p-6 h-131 rounded-2xl border-2 border-gray-300 shadow-sm shrink-0">
         @include('components.list')
     </div>
 
@@ -53,7 +53,7 @@
         @include('components.recent')
     </div>
 
-    <div class="w-165 ml-5 rounded-2xl shrink-0">
+    <div class="w-170 ml-5 rounded-2xl shrink-0">
         @include('components.storage')
     </div>
 

@@ -1,9 +1,9 @@
 <aside class="w-20 bg-[#F8F9FB] border-r border-base-300 flex flex-col h-full justify-between">
 
   <div class="flex flex-col items-center w-full">
-    <div class="mt-8 mb-5 mx-auto">
+    <div class="mt-8 mb-4 mx-auto">
       <a href="/">
-        <img src="/logo.png" alt="Logo" class="w-12 h-12 aspect-square object-contain">
+        <img src="/logo.png" alt="Logo" class="w-15 h-15 object-contain">
       </a>
     </div>
 

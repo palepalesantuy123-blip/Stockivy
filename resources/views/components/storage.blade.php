@@ -1,8 +1,8 @@
 <div class="bg-white p-6 rounded-2xl border-2 border-gray-300 w-full h-full shadow-sm flex flex-col justify-start">
 
-    <div class="flex items-center gap-4 mb-6">
-        <div class="bg-[#ECEFF4] p-3 rounded-lg shrink-0 flex items-center justify-center w-11 h-11 shadow-sm">
-            <img src="/folder.png" alt="Folder Icon" class="w-8 h-8 object-contain">
+    <div class="flex items-center gap-4 mb-6 mt-5 ml-3">
+        <div class="bg-[#ECEFF4] rounded-lg shrink-0 flex items-center justify-center w-11 h-11 shadow-sm">
+            <img src="/folder.png" alt="Folder Icon" class="w-6 h-6 object-contain">
         </div>
         <div>
             <h2 class="text-sm font-bold text-black leading-tight">Storage</h2>
@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="flex flex-row items-center justify-between gap-4 flex-1">
+    <div class="flex flex-row items-center justify-between ml-12 mb-15 gap-4 flex-1">
 
         <div class="w-[50%]">
             <table class="w-full text-left border-collapse">
@@ -66,7 +66,6 @@
     document.addEventListener("DOMContentLoaded", function() {
         const polarCtx = document.getElementById('storagePolarChart').getContext('2d');
 
-        // Data dummy sesuai mockup kamu
         const storageData = [6806, 2000, 3474, 7307];
 
         new Chart(polarCtx, {
@@ -75,7 +74,6 @@
                 labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4'],
                 datasets: [{
                     data: storageData,
-                    // Palette warna monochrome abu-abu biar matching ricing-an kamu
                     backgroundColor: [
                         '#E5E9F0',
                         '#D2D7E4',
@@ -91,19 +89,19 @@
                 maintainAspectRatio: true,
                 plugins: {
                     legend: {
-                        display: false // Sembunyikan legenda bawaan Chart.js karena kita udah bikin tabel custom di kiri
+                        display: false
                     }
                 },
                 scales: {
                     r: {
                         grid: {
-                            color: '#EAECEF' // Warna garis lingkaran
+                            color: '#EAECEF'
                         },
                         angleLines: {
-                            color: '#EAECEF' // Warna garis ruji-ruji roda
+                            color: '#EAECEF'
                         },
                         ticks: {
-                            display: false // Sembunyikan angka skor skala biar clean kayak mockup
+                            display: false
                         }
                     }
                 }
