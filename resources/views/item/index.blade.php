@@ -37,16 +37,26 @@
     </div>
   </div>
 
-  <div class="flex flex-row items-start gap-6 mt-6 w-380">
+<div class="flex flex-row items-stretch gap-6 mt-6 w-380 mx-auto mr-20">
+
     <div class="flex-1 shrink-0">
         @include('components.chartbar')
     </div>
-    <div class="mt-6 ml-6 h-130 w-120 bg-[#F8F9FB] p-4 rounded-2xl border-2 border-gray-300 shadow-sm shrink-0">
+
+    <div class="w-120 mt-6 ml-5 bg-white p-6 rounded-2xl border-2 border-gray-300 shadow-sm shrink-0">
         @include('components.list')
     </div>
-  </div>
-    <div class="mt-12 ml-1 h-130 w-200 bg-[#F8F9FB] p-4 rounded-2xl border-2 border-gray-300 shadow-sm shrink-0">
-        @include('components.list')
+
+</div> <div class="flex flex-row items-stretch gap-6 mt-6 w-380 mx-auto mr-20">
+
+    <div class="w-200 bg-white p-6 rounded-2xl border-2 border-gray-300 shadow-sm shrink-0">
+        @include('components.recent')
     </div>
+
+    <div class="w-165 ml-5 rounded-2xl shrink-0">
+        @include('components.storage')
+    </div>
+
+
 </div>
 </x-master>
