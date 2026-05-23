@@ -20,7 +20,17 @@ Route::get('/', function () {
 });
 
 Route::get('/category', function () {
-    return view('item.category');
+    return view('item.category', [
+        'date' => '2024-06-01',
+        'time' => '14:30',
+    ]);
+});
+
+Route::get('/add', function () {
+    return view('item.add', [
+        'date' => '2024-06-01',
+        'time' => '14:30',
+    ]);
 });
 
 //Login, etc.
