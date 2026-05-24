@@ -33,6 +33,13 @@ Route::get('/add', function () {
     ]);
 });
 
+Route::get('/notification', function () {
+    return view('item.notification', [
+        'date' => '2024-06-01',
+        'time' => '14:30',
+    ]);
+});
+
 //Login, etc.
 Route::middleware('guest')->group(function () {
     Route::get('/login', [RegisteredController::class, 'create'])->name('login');
