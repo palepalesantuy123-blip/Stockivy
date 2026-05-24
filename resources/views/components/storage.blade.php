@@ -16,39 +16,33 @@
             <table class="w-full text-left border-collapse">
                 <thead>
                     <tr class="border-b border-gray-200 text-gray-400 font-bold text-sm">
-                        <th class="pb-2 font-semibold">Label</th>
+                        <th class="pb-2 font-semibold">Category</th>
                         <th class="pb-2 text-right font-semibold">Amount</th>
                     </tr>
                 </thead>
                 <tbody class="text-sm font-bold text-black">
-                    <tr class="border-b border-gray-100 last:border-0">
-                        <td class="py-3 flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-[#E5E9F0] border border-gray-400"></span>
-                            Label 1
-                        </td>
-                        <td class="py-3 text-right">6,806</td>
-                    </tr>
-                    <tr class="border-b border-gray-100 last:border-0">
-                        <td class="py-3 flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-[#D2D7E4] border border-gray-400"></span>
-                            Label 2
-                        </td>
-                        <td class="py-3 text-right">2,000</td>
-                    </tr>
-                    <tr class="border-b border-gray-100 last:border-0">
-                        <td class="py-3 flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-[#EBEDF3] border border-gray-400"></span>
-                            Label 3
-                        </td>
-                        <td class="py-3 text-right">3,474</td>
-                    </tr>
-                    <tr class="border-b border-gray-100 last:border-0">
-                        <td class="py-3 flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-[#C4C9D6] border border-gray-400"></span>
-                            Label 4
-                        </td>
-                        <td class="py-3 text-right">7,307</td>
-                    </tr>
+                    @php
+                        // Palet warna monokrom/nord pastel untuk indikator lingkaran tabel
+                        $colors = ['#E5E9F0', '#D2D7E4', '#EBEDF3', '#C4C9D6', '#A3A9B8', '#E1E4EC'];
+                    @endphp
+
+                    @forelse($pieLabels as $index => $label)
+                        <tr class="border-b border-gray-100 last:border-0">
+                            <td class="py-3 flex items-center gap-2 capitalize">
+                                <span class="w-3 h-3 rounded-full border border-gray-400 shrink-0"
+                                      style="background-color: {{ $colors[$index % count($colors)] }};">
+                                </span>
+                                {{ $label }}
+                            </td>
+                            <td class="py-3 text-right">
+                                {{ number_format($pieValues[$index]) }}
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="2" class="py-4 text-center text-xs font-semibold text-gray-400 italic">No data available</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
@@ -66,19 +60,27 @@
     document.addEventListener("DOMContentLoaded", function() {
         const polarCtx = document.getElementById('storagePolarChart').getContext('2d');
 
-        const storageData = [6806, 2000, 3474, 7307];
+        // inject array dari Laravel controller ke JavaScript menggunakan json_encode
+        const pieLabels = {!! json_encode($pieLabels) !!};
+        const pieValues = {!! json_encode($pieValues) !!};
+
+        // Fallback kalau database kosong biar chart gak nge-bug/kosong melompong
+        const finalLabels = pieLabels.length > 0 ? pieLabels : ['No Data'];
+        const finalValues = pieValues.length > 0 ? pieValues : [0];
 
         new Chart(polarCtx, {
             type: 'polarArea',
             data: {
-                labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4'],
+                labels: finalLabels,
                 datasets: [{
-                    data: storageData,
+                    data: finalValues,
                     backgroundColor: [
                         '#E5E9F0',
                         '#D2D7E4',
                         '#EBEDF3',
-                        '#C4C9D6'
+                        '#C4C9D6',
+                        '#A3A9B8',
+                        '#E1E4EC'
                     ],
                     borderColor: '#8A8A8A',
                     borderWidth: 1

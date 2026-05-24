@@ -7,7 +7,7 @@
     <span>Activity</span>
   </div>
 </div>
-<div class="bg-[#E5E9F0] w-181 h-8 rounded-lg mt-4 mx-auto border border-gray-300 flex items-center px-3 gap-2Focus-within:ring-2 focus-within:ring-blue-400">
+<div class="bg-[#E5E9F0] w-181 h-8 rounded-xl mt-4 mx-auto border border-gray-300 flex items-center px-3 gap-2Focus-within:ring-2 focus-within:ring-blue-400">
   <img src="/search.png" alt="search_button" class="w-4 h-4 object-contain opacity-50">
   <input
     type="text"
@@ -22,10 +22,17 @@
             scrollbar-track-transparent">
 
   <div class="[direction:ltr] space-y-2 mr-8">
-    <div class="p-2 bg-[#E5E9F0] rounded-lg"><img src="blue.jpg"></div>
-    <div class="p-2 bg-[#E5E9F0] rounded-lg"><img src="binigwtuh.jpg"></div>
-    <div class="p-2 bg-[#E5E9F0] rounded-lg"><img src="third.jpg"></div>
-    <div class="p-2 bg-[#E5E9F0] rounded-lg"><img src="hui_se.jpg"></div>
+@foreach($items as $item)
+      <div class="p-2 bg-[#E5E9F0] text-xs font-semibold text-gray-800 rounded-lg shadow-sm hover:bg-gray-200 transition-colors">
+        {{ $item->name }}
+      </div>
+    @endforeach
+
+    @if($items->isEmpty())
+      <div class="p-2 text-xs text-gray-400 text-center">
+        No items available
+      </div>
+    @endif
   </div>
 </div>
 

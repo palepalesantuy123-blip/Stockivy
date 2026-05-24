@@ -7,7 +7,7 @@
         <img src="{{ $user_profile }}" class="w-20 h-20 rounded-full object-cover" />
         <div>
           <p class="font-bold text-lg leading-tight">{{ $person }}</p>
-          <p class="text-sm text-gray-400 mt-1">{{ $desciption }}</p>
+          <p class="text-sm text-gray-400 mt-1">{{ $description }}</p>
         </div>
       </div>
 
@@ -19,7 +19,9 @@
             <img src="/category.png" alt="Logo" class="w-6 h-6 object-contain">
           </div>
           <div class="flex flex-col">
-            <span class="text-base font-bold text-black leading-none">17</span>
+            <span class="text-base font-bold text-black leading-none">
+              {{ $totalCategory }}
+            </span>
             <span class="text-[10px] text-gray-500 font-semibold mt-1">Category</span>
           </div>
         </div>
@@ -29,7 +31,9 @@
             <img src="/box.png" alt="Logo" class="w-6 h-6 object-contain">
           </div>
           <div class="flex flex-col">
-            <span class="text-base font-bold text-black leading-none">164</span>
+            <span class="text-base font-bold text-black leading-none">
+              {{ $totalProduct }}
+            </span>
             <span class="text-[10px] text-gray-500 font-semibold mt-1">Product</span>
           </div>
         </div>
@@ -37,8 +41,7 @@
     </div>
   </div>
 
-<div class="flex flex-row items-stretch gap-6 mt-6 w-380 mx-auto mr-20">
-
+  <div class="flex flex-row items-stretch gap-6 mt-6 w-380 mx-auto mr-20">
     <div class="flex-1 shrink-0">
         @include('components.chartbar')
     </div>
@@ -46,17 +49,17 @@
     <div class="w-120 mt-6 ml-5 bg-white p-6 h-131 rounded-2xl border-2 border-gray-300 shadow-sm shrink-0">
         @include('components.list')
     </div>
+  </div>
 
-</div> <div class="flex flex-row items-stretch gap-6 mt-6 w-380 mx-auto mr-20">
-
-    <div class="w-200 bg-white p-6 rounded-2xl border-2 border-gray-300 shadow-sm shrink-0">
+  <div class="flex flex-row items-stretch gap-6 mt-6 w-380 mx-auto mr-20">
+    <div class="w-200 bg-white p-6 rounded-2xl border-2 border-gray-300 shadow-sm shrink-0 mt-5">
         @include('components.recent')
     </div>
 
-    <div class="w-170 ml-5 rounded-2xl shrink-0">
+    <div class="w-170 ml-5 rounded-2xl shrink-0 mt-5">
         @include('components.storage')
     </div>
-
+  </div>
 
 </div>
 </x-master>

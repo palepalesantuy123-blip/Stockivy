@@ -48,5 +48,14 @@
     17
   </div>
 
+    <div class="w-full flex justify-end items-center gap-3 mt-1">
+      <button type="button" onclick="window.history.back()" class="h-8 px-6 rounded-xl border border-gray-300 bg-white text-xs font-bold text-gray-700 hover:bg-gray-50 transition-colors">
+      Edit
+      </button>
+      <button type="submit" name="status" value="draft" class="h-8 px-6 rounded-xl border border-gray-300 bg-[#E20909] text-xs font-bold text-white hover:bg-red-700 transition-colors">
+      Delete
+      </button>
+
+
 </div>
     </div>
