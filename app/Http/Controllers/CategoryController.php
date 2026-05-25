@@ -38,7 +38,27 @@ class CategoryController extends Controller
         }
 
         $items = $query->get();
+
+        // --- PERBAIKAN PENGAMBILAN GAMBAR DETAIL ---
         $selectedItem = Item::find($request->query('selected_id'));
+
+        if ($selectedItem) {
+            // 1. Jika di DB namanya kolom 'images' (cast array/JSON) tapi di blade manggil 'image'
+            if (isset($selectedItem->images) && is_array($selectedItem->images) && count($selectedItem->images) > 0) {
+                $selectedItem->image = $selectedItem->images[0];
+            } elseif (is_string($selectedItem->image) && str_starts_with($selectedItem->image, '[')) {
+                $decoded = json_decode($selectedItem->image, true);
+                $selectedItem->image = $decoded[0] ?? null;
+            }
+
+            if ($selectedItem->image) {
+                $cleanPath = str_replace('\\', '/', $selectedItem->image);
+                if (!str_starts_with($cleanPath, 'storage/')) {
+                    $cleanPath = 'storage/' . ltrim($cleanPath, '/');
+                }
+                $selectedItem->image = $cleanPath;
+            }
+        }
 
         $totalCategories = Item::distinct('category')->count('category');
         $totalProducts = Item::count();
@@ -66,7 +86,8 @@ class CategoryController extends Controller
 
         return redirect()->route('category.index', ['selected_id' => $item->id])->with('success', 'Updated!');
     }
-    public function destroy(\App\Models\Item $item)
+
+    public function destroy(Item $item)
     {
         $item->delete();
 

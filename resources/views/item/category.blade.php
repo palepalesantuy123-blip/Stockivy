@@ -149,6 +149,18 @@
       @if($selectedItem)
         <div class="p-2 rounded-xl space-y-3 text-xs text-gray-700 flex-1 flex flex-col justify-between">
           <div class="space-y-3">
+
+            <div class="w-full h-40 bg-white border border-gray-300 rounded-xl overflow-hidden flex items-center justify-center relative shadow-inner mb-2">
+              @if($selectedItem->image)
+                <img src="{{ asset($selectedItem->image) }}" alt="{{ $selectedItem->name }}" class="w-full h-full object-cover">
+              @else
+                <div class="flex flex-col items-center justify-center gap-1.5 opacity-30 select-none">
+                  <img src="/box.png" alt="No Image" class="w-8 h-8 object-contain">
+                  <span class="text-[8px] font-bold tracking-wider text-gray-500">NO IMAGE AVAILABLE</span>
+                </div>
+              @endif
+            </div>
+
             <div>
               <span class="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">Product Name</span>
               <span class="text-sm font-bold text-gray-800 mt-0.5 block">{{ $selectedItem->name }}</span>
@@ -190,22 +202,22 @@
           <div class="border-t border-gray-300/60 pt-3 flex justify-between items-center mt-auto">
             <div>
               <span class="block text-[10px] uppercase font-bold text-gray-400 mb-0.5">Status</span>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase {{ $selectedItem->status == 'active' ? 'bg-zinc-800 text-white' : 'bg-gray-200 text-gray-600' }}">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase {{ $selectedItem->status == 'active' || $selectedItem->status == 'publish' ? 'bg-zinc-800 text-white' : 'bg-gray-200 text-gray-600' }}">
                 {{ $selectedItem->status ?? 'Draft' }}
               </span>
             </div>
-<div class="flex gap-1.5">
-  <a href="{{ route('items.edit', $selectedItem) }}" class="px-3 py-1 bg-white border border-gray-300 hover:bg-gray-100 font-semibold rounded-lg text-[11px] transition-all flex items-center justify-center">
-    Edit
-  </a>
-<form action="{{ route('items.destroy', $selectedItem) }}" method="POST" class="m-0 p-0">
-  @csrf
-  @method('DELETE')
-  <button type="submit" class="px-3 py-1 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg text-[11px] transition-all h-7 select-none">
-    Delete
-  </button>
-</form>
-</div>
+            <div class="flex gap-1.5">
+              <a href="{{ route('items.edit', $selectedItem) }}" class="px-3 py-1 bg-white border border-gray-300 hover:bg-gray-100 font-semibold rounded-lg text-[11px] transition-all flex items-center justify-center">
+                Edit
+              </a>
+              <form action="{{ route('items.destroy', $selectedItem) }}" method="POST" class="m-0 p-0">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="px-3 py-1 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg text-[11px] transition-all h-7 select-none">
+                  Delete
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       @else
